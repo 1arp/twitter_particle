@@ -40,7 +40,7 @@ var userCircle = new CenterCircle('pranav', centerRadius);
 userCircle.draw();
 
 
-function FollowingCircle(){
+function FollowingCircle(x,y,radius){
   
   this.x = x;
   this.y = y;
