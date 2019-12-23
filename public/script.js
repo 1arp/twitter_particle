@@ -177,7 +177,7 @@ async function init(twitterhandle){
   
   followingData.forEach(element => {
     var posrad = Math.random() * 2 *Math.PI;
-    var posradius = 100 + Math.random() * ((window.innerHeight/2) - 100);
+    var posradius = 100 + Math.random() * ((Math.min(window.innerHeight,window.innerWidth)/2) - 100);
     followingArray.push(new FollowingCircle(posrad,posradius,15,element['name'],element['screen_name']))
   });
   
