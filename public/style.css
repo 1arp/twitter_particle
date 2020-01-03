@@ -2,6 +2,6 @@ body{
     margin : 0;
     overflow: hidden;
 }
-canvas{
-    background-color: aqua;
+#main-twit {
+    background: #121218;
 }

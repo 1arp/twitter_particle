@@ -4,7 +4,12 @@ main_twit.height = window.innerHeight;
 
 
 var main_context = main_twit.getContext('2d');
-var centerRadius = 30;
+var centerRadius = 10;
+
+main_twit.style.background = "#121218"
+
+main_context.fillStyle = "#ffffff";
+main_context.stroke = "#ffffff";
 
 function getxyofcircle(radius,posrad){
   var x = (window.innerWidth/2) + (Math.cos(posrad) * radius) ;
@@ -54,7 +59,7 @@ function CenterCircle(user,radius){
     // text
     main_context.font = '20px Poppins'
     main_context.textAlign = 'center'
-    main_context.fillText(this.user,x,y+50)
+    main_context.fillText(this.user,x,y+30)
     
 
   }
@@ -103,7 +108,7 @@ function FollowingCircle(posrad,posradius,radius,followingUserName,followingUser
     // text
     main_context.font = '20px Poppins'
     main_context.textAlign = 'center'
-    main_context.fillText(this.user,this.x,this.y+50)
+    main_context.fillText(this.user,this.x,this.y+30)
 
   }
 
@@ -178,7 +183,7 @@ async function init(twitterhandle){
   followingData.forEach(element => {
     var posrad = Math.random() * 2 *Math.PI;
     var posradius = 100 + Math.random() * ((Math.min(window.innerHeight,window.innerWidth)/2) - 100);
-    followingArray.push(new FollowingCircle(posrad,posradius,15,element['name'],element['screen_name']))
+    followingArray.push(new FollowingCircle(posrad,posradius,7.5,element['name'],element['screen_name']))
   });
   
   animate_twitter();
@@ -212,3 +217,6 @@ async function getFollowing(twitterhandle){
 
 init('realDonaldTrump');
 // animate();
+
+
+
