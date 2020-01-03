@@ -9,7 +9,8 @@ var centerRadius = 10;
 main_twit.style.background = "#121218"
 
 main_context.fillStyle = "#ffffff";
-main_context.stroke = "#ffffff";
+main_context.strokeStyle = "#ffffff";
+
 
 function getxyofcircle(radius,posrad){
   var x = (window.innerWidth/2) + (Math.cos(posrad) * radius) ;
@@ -85,9 +86,10 @@ function FollowingCircle(posrad,posradius,radius,followingUserName,followingUser
   this.y = pos.y;
   this.radius = radius;
   this.user = followingUserName;
-  this.dposrad =  (Math.random() - 0.5)/100;
+  this.startdposrad =  (Math.random() - 0.5)/100;
   this.startingradius = radius;
   this.followingUserHandle = followingUserHandle;
+  this.dposrad = this.startdposrad;
 
   this.draw = function(){
     main_context.beginPath();
@@ -95,7 +97,7 @@ function FollowingCircle(posrad,posradius,radius,followingUserName,followingUser
     // line
     main_context.moveTo(window.innerWidth/2,window.innerHeight/2);
     main_context.lineTo(this.x,this.y);
-    main_context.lineWidth = '2';
+    main_context.lineWidth = '0.4';
     main_context.stroke();
 
     // circle
@@ -121,10 +123,13 @@ function FollowingCircle(posrad,posradius,radius,followingUserName,followingUser
 
     // on_hover - change size
     if((mouse_hover.x - this.x) < 20 && (mouse_hover.x - this.x) > -20 && (mouse_hover.y - this.y)  < 20 && (mouse_hover.y - this.y) > -20){
-      if(this.radius < 30)
+      if(this.radius < 20){
         this.radius +=1;
+        this.dposrad = 0;
+      }
     }else if(this.radius > this.startingradius){
       this.radius -= 1;
+      this.dposrad = this.startdposrad;
     }
 
 
@@ -218,5 +223,16 @@ async function getFollowing(twitterhandle){
 init('realDonaldTrump');
 // animate();
 
+
+
+// background particles
+
+// var bg = document.getElementById('b-particles')
+
+// bg.height = window.innerHeight;
+// bg.width = window.innerWidth;
+
+
+// var bg_context = bg.getContext('2d')
 
 
