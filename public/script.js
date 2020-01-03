@@ -112,6 +112,9 @@ function FollowingCircle(posrad,posradius,radius,followingUserName,followingUser
     main_context.textAlign = 'center'
     main_context.fillText(this.user,this.x,this.y+30)
 
+
+    
+
   }
 
   this.update = function (){
@@ -140,6 +143,10 @@ function FollowingCircle(posrad,posradius,radius,followingUserName,followingUser
     if((mouse_click.x - this.x) < 20 && (mouse_click.x - this.x) > -20 && (mouse_click.y - this.y ) < 20 && (mouse_click.y - this.y) > -20){
       mouse_click.x = undefined;
       mouse_click.y = undefined;
+
+      // console.log
+      console.log(this.startdposrad);
+
       init(this.followingUserHandle);
 
     }
