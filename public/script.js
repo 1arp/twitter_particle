@@ -245,7 +245,7 @@ async function getFollowing(twitterhandle){
   return following
 }
 
-init('realDonaldTrump');
+init('narendramodi');
 // animate();
 
 
